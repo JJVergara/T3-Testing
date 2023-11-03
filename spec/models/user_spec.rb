@@ -41,6 +41,11 @@ RSpec.describe User, type: :model do
     expect(@user).to_not be_valid
   end
 
+  it 'is not valid if password is blank' do
+    @user.password = ""
+    expect(@user).to_not be_valid
+  end
+
   it 'is valid with a strong password' do
     @user.password = 'StrongPassword1!'
     expect(@user).to be_valid
